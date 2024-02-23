@@ -2,6 +2,9 @@
 
 This project is a Python script that transcribes video files to EAF files using the WhisperX tool.
 
+![elan](https://github.com/daedalusLAB/create_elan_from_video/assets/1314992/c879c168-3059-4d06-b1a5-f65db100ab39)
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
