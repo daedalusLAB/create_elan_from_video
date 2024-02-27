@@ -8,12 +8,6 @@ import csv
 import pympi
 
 
-
-output_folder = "output"
-input_folder = "videos_to_transcribe/test"
-
-hf_token = "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"
-
 # get current_path
 current_path = os.getcwd()
 
@@ -21,7 +15,7 @@ def transcribe(filename, input_folder, output_folder):
     # create folder with the name of the video in the output folder
     os.system("mkdir " + output_folder + "/" + filename)
     # transcript with whisperX and save the output in output_folder/filename
-    os.system("whisperx --model large --output_format all --hf_token " + hf_token + " --output_dir " + output_folder + "/" + filename + " " + input_folder + "/" + filename)
+    os.system("whisperx --model large --output_format all --output_dir " + output_folder + "/" + filename + " " + input_folder + "/" + filename)
 
 
 def extract_timestamps(input_file, output_file):
