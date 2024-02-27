@@ -9,17 +9,22 @@ This project is a Python script that transcribes video files to EAF files using 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
-
-- Python 3
-- WhisperX
-- pympi
-
 ### Installation
 
-1. Clone the repository
+Clone the repository and install the required packages. We suggest using a virtual environment to avoid conflicts with other packages.
+
 ```sh
-git clone https://github.com/yourusername/your-repo-name.git
+conda create -n create_elan_from_video python=3.10
+conda activate create_elan_from_video
+```
+
+and then
+
+```sh
+git clone https://github.com/daedalusLAB/create_elan_from_video.git
+cd create_elan_from_video
+pip install -r requirements.txt
+
 ```
 
 ## Usage
@@ -27,5 +32,5 @@ git clone https://github.com/yourusername/your-repo-name.git
 To use this script, you need to provide the input and output directories as command line arguments:
 
 ```sh
-python create_elan_from_video.py --input path/to/input --output path/to/output output
+python create_elan_from_video.py --input path/to/input/videos --output path/to/output 
 ```
