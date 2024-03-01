@@ -98,8 +98,9 @@ def create_eaf(path, video_file):
 if __name__ == '__main__':
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Generate EAF files from a folder of JSON files.')
-    parser.add_argument('--input', type=str, help='Path to the input folder with the videos.')
-    parser.add_argument('--output', type=str, help='Path to the output folder.')
+    parser.add_argument('-i', '--input', type=str, help='Path to the input folder with the videos.')
+    parser.add_argument('-o', '--output', type=str, help='Path to the output folder.')
+    parser.add_argument('-j', '--jsonmode', type=bool, default=False, help='If true, no whisper transcription will be done and the input folder should contain the json files.')
     args = parser.parse_args()
 
     # if output folder does not exist create it
@@ -110,8 +111,10 @@ if __name__ == '__main__':
     for filename in os.listdir(args.input):
         if filename.endswith(".mp4"):
             print("Processing: " + filename)
-            # transcribe the video
-            transcribe(filename, args.input, args.output)
+            # if jsonmode is false, transcribe the video
+            if not args.jsonmode:
+                # transcribe the video
+                transcribe(filename, args.input, args.output)
             # extract timestamps from 
             filename_no_extension = filename.replace(".mp4", "")
             extract_timestamps(args.output + "/" + filename + "/" + filename_no_extension + ".json", args.output + "/" + filename + "/words_aligned.csv")
