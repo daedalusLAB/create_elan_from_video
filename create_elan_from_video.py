@@ -57,7 +57,7 @@ def extract_timestamps(input_file, output_file):
     # Create a DataFrame from the list
     df = pd.DataFrame(extracted_data, columns=['Word', 'Start', 'End'])
     # delete last row
-    df = df[:-1]
+    #df = df[:-1]
     
     # Save the DataFrame as a CSV file
     print('Input file: ' + input_file)
